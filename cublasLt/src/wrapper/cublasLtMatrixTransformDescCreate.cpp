@@ -1,0 +1,10 @@
+#include <cublasLt.h>
+#include <dlfcn.h>
+#include <iostream>
+//func_wrapper template
+extern "C"
+cublasStatus_t wrapper_cublasLtMatrixTransformDescCreate(cublasLtMatrixTransformDesc_t *transformDesc, cudaDataType scaleType)
+{
+	cublasStatus_t retval = cublasLtMatrixTransformDescCreate(transformDesc, scaleType);
+	return retval;
+}
