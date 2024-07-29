@@ -2,14 +2,14 @@
 
 #----------------------------------------------------------------------
 
-TARGET_EXECUTABLE=/path/to/executable
+TARGET_EXECUTABLE="/path/to/executable"
 
 #Set this to your "dynamic_cuda" repository path
 DYNAMIC_CUDA_PATH=your/path/here
 
 #----------------------------------------------------------------------
 
-export AUTOTALK_PATH=$AUTOTALK_PATH
+export DYNAMIC_CUDA_PATH=$DYNAMIC_CUDA_PATH
 
 #Fake dynamic CUDA libs
 export LD_LIBRARY_PATH="$DYNAMIC_CUDA_PATH/lib/":${LD_LIBRARY_PATH}
