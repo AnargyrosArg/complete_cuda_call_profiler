@@ -13,14 +13,6 @@ void* (*original_dlopen)(const char *filename, int flag);
 //handle for dyncuda's libcuda library
 void* dyncuda_libcuda_handle = NULL;
 
-//handle for fake cudnn libraries
-void* dynamic_cuda_libcudnn_ops_infer_handle = NULL;
-void* dynamic_cuda_libcudnn_ops_train_handle = NULL;
-void* dynamic_cuda_libcudnn_cnn_infer_handle = NULL;
-void* dynamic_cuda_libcudnn_cnn_train_handle = NULL;
-void* dynamic_cuda_libcudnn_adv_infer_handle = NULL;
-void* dynamic_cuda_libcudnn_adv_train_handle = NULL;
-
 void* libdlopen_handle = NULL;
 
 extern "C"{

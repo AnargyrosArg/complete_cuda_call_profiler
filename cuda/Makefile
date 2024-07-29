@@ -10,6 +10,8 @@ OBJ_FILES = $(addprefix $(BUILD_DIR)/,$(TMP_SOURCE_FILES:.cpp=.o))
 
 CWD = $(shell pwd)
 
+EXTRA_FLAGS = 
+
 .PHONY: src
 
 all: $(BUILD_DIR) libcuda_intercept.so
@@ -20,7 +22,7 @@ libcuda_intercept.so:  $(OBJ_FILES)
 
 #Compiles each source file into its object file individually 
 $(BUILD_DIR)/%.o : $(SRC)/cuda/%.cpp 
-	@g++ -O3 -I${CUDA_HOME}/include -g -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations  -c $< -o $@
+	@g++ -O3 -I${CUDA_HOME}/include $(EXTRA_FLAGS) -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations  -c $< -o $@
 
 
 clean:

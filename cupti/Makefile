@@ -15,6 +15,8 @@ CUPTI_OBJ_FILES = $(addprefix $(BUILD_DIR)/,$(CUPTI_TMP_SOURCE_FILES:.cpp=.o))
 
 CWD = $(shell pwd)
 
+EXTRA_FLAGS = 
+
 .PHONY: src clean
 
 all: $(BUILD_DIR) libwrapper_cupti.so libcupti.so
@@ -29,10 +31,10 @@ libcupti.so:  $(CUPTI_OBJ_FILES) $(BUILD_DIR)
 
 
 $(BUILD_DIR)/wrapper_%.o : $(SRC)/wrapper/%.cpp
-	@g++ -O3 -I${CUDA_HOME}/include -I${CUDA_HOME}/extras/CUPTI/include -g -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -c $< -o $@
+	@g++ -O3 -I${CUDA_HOME}/include -I${CUDA_HOME}/extras/CUPTI/include $(EXTRA_FLAGS) -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -c $< -o $@
 
 $(BUILD_DIR)/%.o : $(SRC)/cupti/%.cpp
-	@g++ -O3 -I${CUDA_HOME}/include -I${CUDA_HOME}/extras/CUPTI/include -g -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -c $< -o $@
+	@g++ -O3 -I${CUDA_HOME}/include -I${CUDA_HOME}/extras/CUPTI/include $(EXTRA_FLAGS) -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -c $< -o $@
 
 
 clean:

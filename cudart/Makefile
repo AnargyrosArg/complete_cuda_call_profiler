@@ -15,6 +15,8 @@ RT_OBJ_FILES = $(addprefix $(BUILD_DIR)/,$(RT_TMP_SOURCE_FILES:.cpp=.o))
 
 CWD = $(shell pwd)
 
+EXTRA_FLAGS =
+ 
 .PHONY: src clean
 
 all: $(BUILD_DIR) libcudart.so
@@ -28,10 +30,10 @@ libcudart.so:  $(RT_OBJ_FILES) $(BUILD_DIR)
 
 
 #$(BUILD_DIR)/wrapper_%.o : $(SRC)/wrapper/%.cpp
-#	@g++ -O3 -I${CUDA_HOME}/include -g -fPIC -shared -D_GNU_SOURCE -c $< -o $@
+#	@g++ -O3 -I${CUDA_HOME}/include $(EXTRA_FLAGS) -fPIC -shared -D_GNU_SOURCE -c $< -o $@
 
 $(BUILD_DIR)/%.o : $(SRC)/cudart/%.cpp
-	@g++ -O3 -I${CUDA_HOME}/include -g -fPIC -shared -D_GNU_SOURCE -c $< -o $@
+	@g++ -O3 -I${CUDA_HOME}/include $(EXTRA_FLAGS) -fPIC -shared -D_GNU_SOURCE -c $< -o $@
 
 
 clean:
