@@ -19,19 +19,26 @@ extern "C"{
         original_dladdr1 = (int (*)(const void *, Dl_info *, void **, int )) original_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY) , "dladdr1");
         int ret;
         ret = original_dladdr1(addr,info,extra_info,flags);
-        // fprintf(stderr," fname: %s , sname:%s\n",info->dli_fname,info->dli_sname);
-        // fprintf(stderr,"*extra_info is %p\n",*extra_info);
+        fprintf(stderr," fname: %s , sname:%s\n",info->dli_fname,info->dli_sname);
+        fprintf(stderr,"*extra_info is %p\n",*extra_info);
         return ret;
     } 
 
 
     void* dlsym(void *handle, const char *symbol)
     {
-        // fprintf(stderr,"dlsym called for symbol %s and handle %p\n",symbol,handle);
+        fprintf(stderr,"dlsym called for symbol %s and handle %p\n",symbol,handle);
         if(original_dlsym == NULL){
             original_dlsym = (void* (*)(void*, const char*)) __libc_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY), "dlsym");
         }
-        return (original_dlsym(handle, symbol));
+
+        void* retval = (original_dlsym(handle, symbol));
+        char* __dlerror;
+        __dlerror = dlerror();
+        if (__dlerror){
+            fprintf(stderr,"dlsym error:%s\n",__dlerror);
+        }
+        return retval;
     }
 
 

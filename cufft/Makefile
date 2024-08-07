@@ -23,7 +23,7 @@ all: $(BUILD_DIR) libwrapper_cufft.so libcufft.so
 
 
 libwrapper_cufft.so:  $(WRAPPER_OBJ_FILES) $(BUILD_DIR)
-	@g++ $(WRAPPER_OBJ_FILES) -o libwrapper_cufft.so -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -L$(CUDA_HOME)/lib64 -lcufft_static -Wl,--export-dynamic
+	@nvcc $(WRAPPER_OBJ_FILES) -o libwrapper_cufft.so --shared -L$(CUDA_HOME)/lib64 -lcufft_static -lculibos 
 
 libcufft.so:  $(CUFFT_OBJ_FILES) $(BUILD_DIR)
 	@g++ $(CUFFT_OBJ_FILES) -o libcufft.so -fPIC -shared -D_GNU_SOURCE -Wno-deprecated -Wno-deprecated-declarations -ldl -Wl,-rpath,'$(CWD)' -Wl,-soname,libcufft.so.10

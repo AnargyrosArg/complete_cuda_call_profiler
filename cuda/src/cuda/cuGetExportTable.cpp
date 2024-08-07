@@ -10,8 +10,11 @@ extern "C" {
 extern "C"
 {
 	CUresult cuGetExportTable(const void **ppExportTable, const CUuuid *pExportTableId) {
-		fprintf(stderr, "%s()\n", __func__);
 		char* __dlerror;
+		char uuid[38];
+		sprintf(uuid,"%p %p",*pExportTableId,*(pExportTableId+8));
+		fprintf(stderr, "%s() -> UUID:%s\n", __func__,uuid);
+
 		//this call clears any previous errors
 		dlerror();
 		if(libcuda_handle == NULL){
