@@ -64,6 +64,7 @@ cudnn: lib_dir
 
 
 clean:
+	cd ./cuda					&& make clean
 	cd ./cudart 				&& make clean
 	cd ./cublas 				&& make clean
 	cd ./cublasLt 				&& make clean
@@ -74,6 +75,7 @@ clean:
 	cd ./cusparse 				&& make clean
 	cd ./cudnn				 	&& make clean
 	cd ./dlopen_interposer		&& make clean
+
 	
 	rm -rf ./lib
 
