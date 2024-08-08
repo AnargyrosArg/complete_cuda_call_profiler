@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuLinkAddData_v2(CUlinkState state, CUjitInputType type, void *data, size_t size, const char *name, unsigned int numOptions, CUjit_option *options, void **optionValues) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

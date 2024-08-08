@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasZgbmv_v2(cublasHandle_t handle, cublasOperation_t trans, int m, int n, int kl, int ku, const cuDoubleComplex *alpha, const cuDoubleComplex *A, int lda, const cuDoubleComplex *x, int incx, const cuDoubleComplex *beta, cuDoubleComplex *y, int incy) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

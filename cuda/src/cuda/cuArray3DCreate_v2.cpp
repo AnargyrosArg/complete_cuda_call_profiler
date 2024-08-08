@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuArray3DCreate_v2(CUarray *pHandle, const CUDA_ARRAY3D_DESCRIPTOR *pAllocateArray) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasCherk3mEx(cublasHandle_t handle, cublasFillMode_t uplo, cublasOperation_t trans, int n, int k, const float *alpha, const void *A, cudaDataType Atype, int lda, const float *beta, void *C, cudaDataType Ctype, int ldc) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasDspmv_v2(cublasHandle_t handle, cublasFillMode_t uplo, int n, const double *alpha, const double *AP, const double *x, int incx, const double *beta, double *y, int incy) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

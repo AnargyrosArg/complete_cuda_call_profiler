@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasCsyrkx(cublasHandle_t handle, cublasFillMode_t uplo, cublasOperation_t trans, int n, int k, const cuComplex *alpha, const cuComplex *A, int lda, const cuComplex *B, int ldb, const cuComplex *beta, cuComplex *C, int ldc) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

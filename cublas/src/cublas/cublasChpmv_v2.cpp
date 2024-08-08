@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasChpmv_v2(cublasHandle_t handle, cublasFillMode_t uplo, int n, const cuComplex *alpha, const cuComplex *AP, const cuComplex *x, int incx, const cuComplex *beta, cuComplex *y, int incy) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

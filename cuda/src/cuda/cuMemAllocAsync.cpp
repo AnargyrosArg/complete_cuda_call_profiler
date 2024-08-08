@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuMemAllocAsync(CUdeviceptr *dptr, size_t bytesize, CUstream hStream) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuGraphExternalSemaphoresSignalNodeGetParams(CUgraphNode hNode, CUDA_EXT_SEM_SIGNAL_NODE_PARAMS *params_out) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

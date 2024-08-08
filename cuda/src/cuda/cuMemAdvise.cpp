@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuMemAdvise(CUdeviceptr devPtr, size_t count, CUmem_advise advice, CUdevice device) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

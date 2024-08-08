@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasSgeqrfBatched(cublasHandle_t handle, int m, int n, float * const Aarray[], int lda, float * const TauArray[], int *info, int batchSize) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

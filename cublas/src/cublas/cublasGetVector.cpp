@@ -8,6 +8,9 @@ extern "C"
 {
 	cublasStatus_t cublasGetVector(int n, int elemSize, const void *x, int incx, void *y, int incy) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_handle == NULL){

@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	void CUstreamCallback(CUstream hStream, CUresult status, void *userData) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

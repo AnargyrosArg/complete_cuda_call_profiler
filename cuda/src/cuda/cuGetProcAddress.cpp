@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuGetProcAddress(const char *symbol, void **pfn, int cudaVersion, cuuint64_t flags) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		//Returning an error here causes the calling cudart function to fallback to dlsym symbol resolution
 		//allowing us to intercept.
 		return CUDA_ERROR_NOT_FOUND;

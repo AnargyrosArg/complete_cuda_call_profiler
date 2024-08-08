@@ -10,6 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuGetExportTable(const void **ppExportTable, const CUuuid *pExportTableId) {
+		#ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		char* __dlerror;
 		char uuid[38];
 		sprintf(uuid,"%p %p",*pExportTableId,*(pExportTableId+8));

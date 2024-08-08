@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuMemGetInfo_v2(size_t *free, size_t *total) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

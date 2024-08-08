@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuModuleGetFunction(CUfunction *hfunc, CUmodule hmod, const char *name) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror = NULL;
 		//this call clears any previous errors
 		dlerror();

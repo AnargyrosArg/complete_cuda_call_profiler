@@ -10,7 +10,9 @@ extern "C" {
 extern "C"
 {
 	CUresult cuCtxPushCurrent_v2(CUcontext ctx) {
-		fprintf(stderr, "%s()\n", __func__);
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();
