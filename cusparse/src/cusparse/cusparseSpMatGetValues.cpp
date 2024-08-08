@@ -7,6 +7,9 @@ extern void* libwrapper_cusparse_handle;
 extern "C"
 {
 	cusparseStatus_t cusparseSpMatGetValues(cusparseSpMatDescr_t spMatDescr, void **values) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

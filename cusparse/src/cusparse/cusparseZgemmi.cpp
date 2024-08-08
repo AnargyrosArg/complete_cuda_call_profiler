@@ -7,6 +7,9 @@ extern void* libwrapper_cusparse_handle;
 extern "C"
 {
 	cusparseStatus_t cusparseZgemmi(cusparseHandle_t handle, int m, int n, int k, int nnz, const cuDoubleComplex *alpha, const cuDoubleComplex *A, int lda, const cuDoubleComplex *cscValB, const int *cscColPtrB, const int *cscRowIndB, const cuDoubleComplex *beta, cuDoubleComplex *C, int ldc) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

@@ -7,6 +7,9 @@ extern void* libwrapper_cusparse_handle;
 extern "C"
 {
 	cusparseStatus_t cusparseRot(cusparseHandle_t handle, const void *c_coeff, const void *s_coeff, cusparseSpVecDescr_t vecX, cusparseDnVecDescr_t vecY) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

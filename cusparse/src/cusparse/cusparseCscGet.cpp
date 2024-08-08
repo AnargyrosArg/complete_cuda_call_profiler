@@ -7,6 +7,9 @@ extern void* libwrapper_cusparse_handle;
 extern "C"
 {
 	cusparseStatus_t cusparseCscGet(cusparseSpMatDescr_t spMatDescr, int64_t *rows, int64_t *cols, int64_t *nnz, void **cscColOffsets, void **cscRowInd, void **cscValues, cusparseIndexType_t *cscColOffsetsType, cusparseIndexType_t *cscRowIndType, cusparseIndexBase_t *idxBase, cudaDataType *valueType) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

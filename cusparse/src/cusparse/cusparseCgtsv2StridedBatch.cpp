@@ -7,6 +7,9 @@ extern void* libwrapper_cusparse_handle;
 extern "C"
 {
 	cusparseStatus_t cusparseCgtsv2StridedBatch(cusparseHandle_t handle, int m, const cuComplex *dl, const cuComplex *d, const cuComplex *du, cuComplex *x, int batchCount, int batchStride, void *pBuffer) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();
