@@ -7,6 +7,9 @@ extern void* libwrapper_cusolver_handle;
 extern "C"
 {
 	cusolverStatus_t cusolverDnDpotrsBatched(cusolverDnHandle_t handle, cublasFillMode_t uplo, int n, int nrhs, double *A[], int lda, double *B[], int ldb, int *d_info, int batchSize) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

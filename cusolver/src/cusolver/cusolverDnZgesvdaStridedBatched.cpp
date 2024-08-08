@@ -7,6 +7,9 @@ extern void* libwrapper_cusolver_handle;
 extern "C"
 {
 	cusolverStatus_t cusolverDnZgesvdaStridedBatched(cusolverDnHandle_t handle, cusolverEigMode_t jobz, int rank, int m, int n, const cuDoubleComplex *d_A, int lda, long long int strideA, double *d_S, long long int strideS, cuDoubleComplex *d_U, int ldu, long long int strideU, cuDoubleComplex *d_V, int ldv, long long int strideV, cuDoubleComplex *d_work, int lwork, int *d_info, double *h_R_nrmF, int batchSize) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

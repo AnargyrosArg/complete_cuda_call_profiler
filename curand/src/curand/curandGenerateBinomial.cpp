@@ -7,6 +7,9 @@ extern void* libwrapper_curand_handle;
 extern "C"
 {
 	curandStatus_t curandGenerateBinomial(curandGenerator_t generator, unsigned int *outputPtr, size_t num, unsigned int n, double p) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

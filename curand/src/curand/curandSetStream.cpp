@@ -7,6 +7,9 @@ extern void* libwrapper_curand_handle;
 extern "C"
 {
 	curandStatus_t curandSetStream(curandGenerator_t generator, cudaStream_t stream) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

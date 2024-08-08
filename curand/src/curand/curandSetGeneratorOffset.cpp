@@ -7,6 +7,9 @@ extern void* libwrapper_curand_handle;
 extern "C"
 {
 	curandStatus_t curandSetGeneratorOffset(curandGenerator_t generator, unsigned long long offset) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();
