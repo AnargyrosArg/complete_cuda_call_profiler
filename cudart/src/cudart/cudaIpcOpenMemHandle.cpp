@@ -9,6 +9,9 @@ extern "C"
 {
 	cudaError_t cudaIpcOpenMemHandle(void **devPtr, cudaIpcMemHandle_t handle, unsigned int flags) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){

@@ -9,6 +9,9 @@ extern "C"
 {
 	cudaError_t cudaGraphEventRecordNodeGetEvent(cudaGraphNode_t node, cudaEvent_t *event_out) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){

@@ -19,6 +19,9 @@ void (*wrapper___cudaRegisterManagedVar)(void **fatCubinHandle,void **hostVarPtr
 
 char __cudaInitModule(void **fatCubinHandle)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -41,6 +44,9 @@ char __cudaInitModule(void **fatCubinHandle)
 
 void ** __cudaRegisterFatBinary(void **fatCubin)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -63,6 +69,9 @@ void ** __cudaRegisterFatBinary(void **fatCubin)
 
 void __cudaRegisterFatBinaryEnd(void **fatCubinHandle)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -85,6 +94,9 @@ void __cudaRegisterFatBinaryEnd(void **fatCubinHandle)
 
 void __cudaUnregisterFatBinary(void **fatCubin)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -107,6 +119,9 @@ void __cudaUnregisterFatBinary(void **fatCubin)
 
 void __cudaRegisterFunction(void **fatCubinHandle, const char *hostFun, char *deviceFun, const char *deviceName, int thread_limit, uint3 *tid, uint3 *bid, dim3 *bDim, dim3 *gDim, int *wSize)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -129,6 +144,9 @@ void __cudaRegisterFunction(void **fatCubinHandle, const char *hostFun, char *de
 
 void __cudaRegisterVar(void **fatCubinHandle,char  *hostVar,char  *deviceAddress,  const char  *deviceName,int ext,size_t size,int constant,int global)
 {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -150,6 +168,9 @@ void __cudaRegisterVar(void **fatCubinHandle,char  *hostVar,char  *deviceAddress
 }
 
 cudaError_t __cudaPopCallConfiguration(dim3 *gridDim, dim3 *blockDim, size_t *sharedMem, cudaStream_t *stream){
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -171,6 +192,9 @@ cudaError_t __cudaPopCallConfiguration(dim3 *gridDim, dim3 *blockDim, size_t *sh
 }
 
 cudaError_t __cudaPushCallConfiguration(dim3 gridDim, dim3 blockDim, size_t sharedMem, cudaStream_t stream) {
+	#ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
     char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
@@ -195,7 +219,10 @@ cudaError_t __cudaPushCallConfiguration(dim3 gridDim, dim3 blockDim, size_t shar
 
 
 void __cudaRegisterManagedVar(void **fatCubinHandle,void **hostVarPtrAddress,char *deviceAddress,const char *deviceName,int	ext,size_t size,int	constant,int	global){
-    char* __dlerror;
+    #ifdef PRINT_TRACE
+    fprintf(stderr,"%s()\n",__func__);
+    #endif
+	char* __dlerror;
 	//this call clears any previous errors
 	dlerror();
 	if(libcudart_handle == NULL){

@@ -9,6 +9,9 @@ extern "C"
 {
 	cudaError_t cudaStreamGetCaptureInfo_v2(cudaStream_t stream, enum cudaStreamCaptureStatus *captureStatus_out, unsigned long long *id_out, cudaGraph_t *graph_out, const cudaGraphNode_t **dependencies_out, size_t *numDependencies_out) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){

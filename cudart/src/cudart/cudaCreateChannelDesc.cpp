@@ -9,6 +9,9 @@ extern "C"
 {
 	struct cudaChannelFormatDesc cudaCreateChannelDesc(int x, int y, int z, int w, enum cudaChannelFormatKind f) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){

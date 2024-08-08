@@ -152,6 +152,9 @@ extern "C"{
 
   	//Runtime API cudaGetExportTable just forward call to driver's cuGetExportTable
   	cudaError_t cudaGetExportTable(const void **ppExportTable, const cudaUUID_t *pExportTableId) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		char uuid[38];
 		sprintf(uuid,"%p %p",*pExportTableId,*(pExportTableId+8));
 		CUresult retval;

@@ -9,6 +9,9 @@ extern "C"
 {
 	cudaError_t cudaMemGetInfo(size_t *free, size_t *total) {
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){

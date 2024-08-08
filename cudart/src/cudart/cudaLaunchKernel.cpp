@@ -8,8 +8,10 @@ extern void* libcudart_handle;
 extern "C"
 {
 	cudaError_t cudaLaunchKernel(const void *func, dim3 gridDim, dim3 blockDim, void **args, size_t sharedMem, cudaStream_t stream) {
-		fprintf(stderr,"%s()\n",__func__);
 		char* __dlerror;
+		#ifdef PRINT_TRACE
+		fprintf(stderr,"%s()\n",__func__);
+		#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libcudart_handle == NULL){
