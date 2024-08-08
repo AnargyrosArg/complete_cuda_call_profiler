@@ -28,7 +28,6 @@ extern "C"
 			fprintf(stderr, "dlsym error for fntion cudaFree():%s\n", __dlerror);
 			fflush(stderr);
 		}
-		fprintf(stderr,"calling wrapper_cudaFree() !\n");
 		cudaError_t retval = wrapper_cudaFree(devPtr);
 		return retval;
 	}

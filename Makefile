@@ -1,4 +1,6 @@
 CWD = $(shell pwd)
+EXTRA_FLAGS = -DPRINT_TRACE
+export EXTRA_FLAGS
 
 all: lib_dir dlopen_interposer cudart cuda cublas cublasLt cufft cupti curand cusolver cusparse cudnn
 

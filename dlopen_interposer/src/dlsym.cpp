@@ -19,15 +19,17 @@ extern "C"{
         original_dladdr1 = (int (*)(const void *, Dl_info *, void **, int )) original_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY) , "dladdr1");
         int ret;
         ret = original_dladdr1(addr,info,extra_info,flags);
-        fprintf(stderr," fname: %s , sname:%s\n",info->dli_fname,info->dli_sname);
-        fprintf(stderr,"*extra_info is %p\n",*extra_info);
+        // fprintf(stderr," fname: %s , sname:%s\n",info->dli_fname,info->dli_sname);
+        // fprintf(stderr,"*extra_info is %p\n",*extra_info);
         return ret;
     } 
 
 
     void* dlsym(void *handle, const char *symbol)
     {
+        #ifdef PRINT_TRACE
         fprintf(stderr,"dlsym called for symbol %s and handle %p\n",symbol,handle);
+        #endif
         if(original_dlsym == NULL){
             original_dlsym = (void* (*)(void*, const char*)) __libc_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY), "dlsym");
         }
@@ -44,8 +46,9 @@ extern "C"{
 
 
     void *dlvsym(void *handle,const char *symbol,const char *version){
-        // fprintf(stderr,"dlvsym called for symbol %s and handle %p and version %s\n",symbol,handle,version);
-
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"dlvsym called for symbol %s and handle %p and version %s\n",symbol,handle,version);
+        #endif
         void* (*original_dlvsym)(void *,const char *,const char *);
         original_dlvsym = (void *(*)(void *,const char *,const char *)) original_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY), "dlvsym");
         return original_dlvsym(handle,symbol,version);
@@ -54,12 +57,10 @@ extern "C"{
 
     int dlclose(void *handle){
         int (*original_dlclose)( void*);
-        original_dlclose = (int (*)( void*))original_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY),"dlclose");
-        
-
-        // fprintf(stderr,"dlclose for handle %p\n",handle);
-        
-        
+        original_dlclose = (int (*)( void*))original_dlsym(__libc_dlopen_mode("libdl.so.2",RTLD_LAZY),"dlclose");        
+        #ifdef PRINT_TRACE
+        fprintf(stderr,"dlclose for handle %p\n",handle);
+        #endif
         return original_dlclose(handle);
     }   
 

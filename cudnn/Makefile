@@ -15,7 +15,7 @@ CUDNN_OBJ_FILES = $(addprefix $(BUILD_DIR)/,$(CUDNN_TMP_SOURCE_FILES:.cpp=.o))
 
 CWD = $(shell pwd)
 
-EXTRA_FLAGS = 
+
 
 .PHONY: src clean
 

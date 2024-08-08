@@ -7,7 +7,7 @@ OBJ_FILES = $(addprefix $(BUILD_DIR)/,$(TMP_SOURCE_FILES:.cpp=.o))
 
 CWD = $(shell pwd)
 
-EXTRA_FLAGS = 
+
 
 .PHONY: src
 
