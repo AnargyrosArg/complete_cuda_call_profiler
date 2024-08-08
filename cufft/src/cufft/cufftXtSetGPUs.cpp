@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtSetGPUs)(cufftHandle, int, int *);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtSetGPUs(cufftHandle handle, int nGPUs, int *whichGPUs) {
+	cufftResult cufftXtSetGPUs(cufftHandle handle, int nGPUs, int *whichGPUs){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

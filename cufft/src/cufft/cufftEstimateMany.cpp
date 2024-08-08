@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftEstimateMany)(int, int *, int *, int, int, int *, int
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftEstimateMany(int rank, int *n, int *inembed, int istride, int idist, int *onembed, int ostride, int odist, cufftType type, int batch, size_t *workSize) {
+	cufftResult cufftEstimateMany(int rank, int *n, int *inembed, int istride, int idist, int *onembed, int ostride, int odist, cufftType type, int batch, size_t *workSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

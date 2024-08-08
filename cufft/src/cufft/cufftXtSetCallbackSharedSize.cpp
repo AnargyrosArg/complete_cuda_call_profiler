@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtSetCallbackSharedSize)(cufftHandle, cufftXtCallback
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtSetCallbackSharedSize(cufftHandle plan, cufftXtCallbackType cbType, size_t sharedSize) {
+	cufftResult cufftXtSetCallbackSharedSize(cufftHandle plan, cufftXtCallbackType cbType, size_t sharedSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

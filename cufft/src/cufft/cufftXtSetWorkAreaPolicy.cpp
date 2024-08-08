@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtSetWorkAreaPolicy)(cufftHandle, cufftXtWorkAreaPoli
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtSetWorkAreaPolicy(cufftHandle plan, cufftXtWorkAreaPolicy policy, size_t *workSize) {
+	cufftResult cufftXtSetWorkAreaPolicy(cufftHandle plan, cufftXtWorkAreaPolicy policy, size_t *workSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

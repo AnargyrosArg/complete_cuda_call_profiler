@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtQueryPlan)(cufftHandle, void *, cufftXtQueryType);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtQueryPlan(cufftHandle plan, void *queryStruct, cufftXtQueryType queryType) {
+	cufftResult cufftXtQueryPlan(cufftHandle plan, void *queryStruct, cufftXtQueryType queryType){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

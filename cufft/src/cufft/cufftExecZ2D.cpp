@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftExecZ2D)(cufftHandle, cufftDoubleComplex *, cufftDoub
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftExecZ2D(cufftHandle plan, cufftDoubleComplex *idata, cufftDoubleReal *odata) {
+	cufftResult cufftExecZ2D(cufftHandle plan, cufftDoubleComplex *idata, cufftDoubleReal *odata){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

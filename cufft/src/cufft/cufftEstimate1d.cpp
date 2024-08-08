@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftEstimate1d)(int, cufftType, int, size_t *);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftEstimate1d(int nx, cufftType type, int batch, size_t *workSize) {
+	cufftResult cufftEstimate1d(int nx, cufftType type, int batch, size_t *workSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

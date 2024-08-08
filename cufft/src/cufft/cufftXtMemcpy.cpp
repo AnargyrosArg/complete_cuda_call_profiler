@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtMemcpy)(cufftHandle, void *, void *, cufftXtCopyTyp
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtMemcpy(cufftHandle plan, void *dstPointer, void *srcPointer, cufftXtCopyType type) {
+	cufftResult cufftXtMemcpy(cufftHandle plan, void *dstPointer, void *srcPointer, cufftXtCopyType type){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

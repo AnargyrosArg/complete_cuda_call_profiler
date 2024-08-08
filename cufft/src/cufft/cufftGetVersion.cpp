@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftGetVersion)(int *);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftGetVersion(int *version) {
+	cufftResult cufftGetVersion(int *version){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

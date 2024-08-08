@@ -7,6 +7,9 @@ extern void* libwrapper_cupti_handle;
 extern "C"
 {
 	CUptiResult cuptiMetricEnumProperties(CUpti_MetricID metric, size_t *propIdArraySizeBytes, CUpti_MetricPropertyID *propIdArray) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

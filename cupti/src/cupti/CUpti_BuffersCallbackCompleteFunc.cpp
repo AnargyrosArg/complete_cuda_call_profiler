@@ -7,6 +7,9 @@ extern void* libwrapper_cupti_handle;
 extern "C"
 {
 	void CUpti_BuffersCallbackCompleteFunc(CUcontext context, uint32_t streamId, uint8_t *buffer, size_t size, size_t validSize) {
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

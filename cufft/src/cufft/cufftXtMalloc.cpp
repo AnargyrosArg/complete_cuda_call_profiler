@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtMalloc)(cufftHandle, cudaLibXtDesc **, cufftXtSubFo
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtMalloc(cufftHandle plan, cudaLibXtDesc **descriptor, cufftXtSubFormat format) {
+	cufftResult cufftXtMalloc(cufftHandle plan, cudaLibXtDesc **descriptor, cufftXtSubFormat format){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

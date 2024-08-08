@@ -6,7 +6,10 @@ void (*wrapper_cufftCallbackStoreZ)(void *, size_t, cufftDoubleComplex, void *, 
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	void cufftCallbackStoreZ(void *dataOut, size_t offset, cufftDoubleComplex element, void *callerInfo, void *sharedPointer) {
+	void cufftCallbackStoreZ(void *dataOut, size_t offset, cufftDoubleComplex element, void *callerInfo, void *sharedPointer){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

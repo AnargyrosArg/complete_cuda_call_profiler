@@ -6,7 +6,10 @@ cufftDoubleReal (*wrapper_cufftCallbackLoadD)(void *, size_t, void *, void *);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftDoubleReal cufftCallbackLoadD(void *dataIn, size_t offset, void *callerInfo, void *sharedPointer) {
+	cufftDoubleReal cufftCallbackLoadD(void *dataIn, size_t offset, void *callerInfo, void *sharedPointer){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftSetStream)(cufftHandle, cudaStream_t);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftSetStream(cufftHandle plan, cudaStream_t stream) {
+	cufftResult cufftSetStream(cufftHandle plan, cudaStream_t stream){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

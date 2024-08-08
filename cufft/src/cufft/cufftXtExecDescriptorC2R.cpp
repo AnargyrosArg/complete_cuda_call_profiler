@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtExecDescriptorC2R)(cufftHandle, cudaLibXtDesc *, cu
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtExecDescriptorC2R(cufftHandle plan, cudaLibXtDesc *input, cudaLibXtDesc *output) {
+	cufftResult cufftXtExecDescriptorC2R(cufftHandle plan, cudaLibXtDesc *input, cudaLibXtDesc *output){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

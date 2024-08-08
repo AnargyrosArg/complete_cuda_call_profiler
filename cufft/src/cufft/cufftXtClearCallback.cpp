@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtClearCallback)(cufftHandle, cufftXtCallbackType);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtClearCallback(cufftHandle plan, cufftXtCallbackType cbType) {
+	cufftResult cufftXtClearCallback(cufftHandle plan, cufftXtCallbackType cbType){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

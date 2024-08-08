@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftSetAutoAllocation)(cufftHandle, int);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftSetAutoAllocation(cufftHandle plan, int autoAllocate) {
+	cufftResult cufftSetAutoAllocation(cufftHandle plan, int autoAllocate){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

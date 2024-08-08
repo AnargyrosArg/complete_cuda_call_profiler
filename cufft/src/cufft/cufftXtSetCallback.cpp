@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftXtSetCallback)(cufftHandle, void **, cufftXtCallbackT
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftXtSetCallback(cufftHandle plan, void **callback_routine, cufftXtCallbackType cbType, void **caller_info) {
+	cufftResult cufftXtSetCallback(cufftHandle plan, void **callback_routine, cufftXtCallbackType cbType, void **caller_info){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

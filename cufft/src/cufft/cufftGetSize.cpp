@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftGetSize)(cufftHandle, size_t *);
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftGetSize(cufftHandle handle, size_t *workSize) {
+	cufftResult cufftGetSize(cufftHandle handle, size_t *workSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();

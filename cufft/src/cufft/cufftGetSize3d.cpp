@@ -6,7 +6,10 @@ cufftResult (*wrapper_cufftGetSize3d)(cufftHandle, int, int, int, cufftType, siz
 extern void* libwrapper_cufft_handle;
 extern "C"
 {
-	cufftResult cufftGetSize3d(cufftHandle handle, int nx, int ny, int nz, cufftType type, size_t *workSize) {
+	cufftResult cufftGetSize3d(cufftHandle handle, int nx, int ny, int nz, cufftType type, size_t *workSize){
+		#ifdef PRINT_TRACE
+        fprintf(stderr,"%s()\n",__func__);
+        #endif 
 		char* __dlerror;
 		//this call clears any previous errors
 		dlerror();
