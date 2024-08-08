@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnPoolingBackward)(cudnnHandle_t, const cudnnPoolingD
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnPoolingBackward(cudnnHandle_t handle, const cudnnPoolingDescriptor_t poolingDesc, const void *alpha, const cudnnTensorDescriptor_t yDesc, const void *y, const cudnnTensorDescriptor_t dyDesc, const void *dy, const cudnnTensorDescriptor_t xDesc, const void *x, const void *beta, const cudnnTensorDescriptor_t dxDesc, void *dx{
+	cudnnStatus_t cudnnPoolingBackward(cudnnHandle_t handle, const cudnnPoolingDescriptor_t poolingDesc, const void *alpha, const cudnnTensorDescriptor_t yDesc, const void *y, const cudnnTensorDescriptor_t dyDesc, const void *dy, const cudnnTensorDescriptor_t xDesc, const void *x, const void *beta, const cudnnTensorDescriptor_t dxDesc, void *dx){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

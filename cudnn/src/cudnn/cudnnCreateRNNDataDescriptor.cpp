@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnCreateRNNDataDescriptor)(cudnnRNNDataDescriptor_t *
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnCreateRNNDataDescriptor(cudnnRNNDataDescriptor_t *rnnDataDesc{
+	cudnnStatus_t cudnnCreateRNNDataDescriptor(cudnnRNNDataDescriptor_t *rnnDataDesc){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

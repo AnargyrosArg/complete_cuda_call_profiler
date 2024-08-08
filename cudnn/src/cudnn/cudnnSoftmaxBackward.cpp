@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnSoftmaxBackward)(cudnnHandle_t, cudnnSoftmaxAlgorit
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnSoftmaxBackward(cudnnHandle_t handle, cudnnSoftmaxAlgorithm_t algo, cudnnSoftmaxMode_t mode, const void *alpha, const cudnnTensorDescriptor_t yDesc, const void *y, const cudnnTensorDescriptor_t dyDesc, const void *dy, const void *beta, const cudnnTensorDescriptor_t dxDesc, void *dx{
+	cudnnStatus_t cudnnSoftmaxBackward(cudnnHandle_t handle, cudnnSoftmaxAlgorithm_t algo, cudnnSoftmaxMode_t mode, const void *alpha, const cudnnTensorDescriptor_t yDesc, const void *y, const cudnnTensorDescriptor_t dyDesc, const void *dy, const void *beta, const cudnnTensorDescriptor_t dxDesc, void *dx){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

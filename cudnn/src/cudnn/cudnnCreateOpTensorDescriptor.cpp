@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnCreateOpTensorDescriptor)(cudnnOpTensorDescriptor_t
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnCreateOpTensorDescriptor(cudnnOpTensorDescriptor_t *opTensorDesc{
+	cudnnStatus_t cudnnCreateOpTensorDescriptor(cudnnOpTensorDescriptor_t *opTensorDesc){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

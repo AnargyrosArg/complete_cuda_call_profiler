@@ -6,7 +6,7 @@ size_t (*wrapper_cudnnGetCudartVersion)();
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	size_t cudnnGetCudartVersion({
+	size_t cudnnGetCudartVersion(){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

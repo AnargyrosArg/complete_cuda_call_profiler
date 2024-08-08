@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnGetOpTensorDescriptor)(const cudnnOpTensorDescripto
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnGetOpTensorDescriptor(const cudnnOpTensorDescriptor_t opTensorDesc, cudnnOpTensorOp_t *opTensorOp, cudnnDataType_t *opTensorCompType, cudnnNanPropagation_t *opTensorNanOpt{
+	cudnnStatus_t cudnnGetOpTensorDescriptor(const cudnnOpTensorDescriptor_t opTensorDesc, cudnnOpTensorOp_t *opTensorOp, cudnnDataType_t *opTensorCompType, cudnnNanPropagation_t *opTensorNanOpt){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

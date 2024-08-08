@@ -6,7 +6,7 @@ const char * (*wrapper_cudnnGetErrorString)(cudnnStatus_t);
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	const char * cudnnGetErrorString(cudnnStatus_t status{
+	const char * cudnnGetErrorString(cudnnStatus_t status){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

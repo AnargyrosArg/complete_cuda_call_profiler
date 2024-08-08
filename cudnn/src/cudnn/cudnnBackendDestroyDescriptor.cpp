@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnBackendDestroyDescriptor)(cudnnBackendDescriptor_t)
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnBackendDestroyDescriptor(cudnnBackendDescriptor_t descriptor{
+	cudnnStatus_t cudnnBackendDestroyDescriptor(cudnnBackendDescriptor_t descriptor){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

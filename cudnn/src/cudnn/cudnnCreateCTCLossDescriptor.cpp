@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnCreateCTCLossDescriptor)(cudnnCTCLossDescriptor_t *
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnCreateCTCLossDescriptor(cudnnCTCLossDescriptor_t *ctcLossDesc{
+	cudnnStatus_t cudnnCreateCTCLossDescriptor(cudnnCTCLossDescriptor_t *ctcLossDesc){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

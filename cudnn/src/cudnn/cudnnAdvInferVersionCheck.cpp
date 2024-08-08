@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnAdvInferVersionCheck)();
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnAdvInferVersionCheck({
+	cudnnStatus_t cudnnAdvInferVersionCheck(){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

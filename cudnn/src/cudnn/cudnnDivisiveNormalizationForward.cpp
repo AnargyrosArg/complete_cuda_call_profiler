@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnDivisiveNormalizationForward)(cudnnHandle_t, cudnnL
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnDivisiveNormalizationForward(cudnnHandle_t handle, cudnnLRNDescriptor_t normDesc, cudnnDivNormMode_t mode, const void *alpha, const cudnnTensorDescriptor_t xDesc, const void *x, const void *means, void *temp, void *temp2, const void *beta, const cudnnTensorDescriptor_t yDesc, void *y{
+	cudnnStatus_t cudnnDivisiveNormalizationForward(cudnnHandle_t handle, cudnnLRNDescriptor_t normDesc, cudnnDivNormMode_t mode, const void *alpha, const cudnnTensorDescriptor_t xDesc, const void *x, const void *means, void *temp, void *temp2, const void *beta, const cudnnTensorDescriptor_t yDesc, void *y){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

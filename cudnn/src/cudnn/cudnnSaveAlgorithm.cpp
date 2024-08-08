@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnSaveAlgorithm)(cudnnHandle_t, cudnnAlgorithmDescrip
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnSaveAlgorithm(cudnnHandle_t handle, cudnnAlgorithmDescriptor_t algoDesc, void *algoSpace, size_t algoSpaceSizeInBytes{
+	cudnnStatus_t cudnnSaveAlgorithm(cudnnHandle_t handle, cudnnAlgorithmDescriptor_t algoDesc, void *algoSpace, size_t algoSpaceSizeInBytes){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

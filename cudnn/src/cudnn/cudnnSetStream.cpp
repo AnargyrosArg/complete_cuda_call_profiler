@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnSetStream)(cudnnHandle_t, cudaStream_t);
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnSetStream(cudnnHandle_t handle, cudaStream_t streamId{
+	cudnnStatus_t cudnnSetStream(cudnnHandle_t handle, cudaStream_t streamId){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

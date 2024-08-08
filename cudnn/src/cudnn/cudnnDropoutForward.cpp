@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnDropoutForward)(cudnnHandle_t, const cudnnDropoutDe
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnDropoutForward(cudnnHandle_t handle, const cudnnDropoutDescriptor_t dropoutDesc, const cudnnTensorDescriptor_t xdesc, const void *x, const cudnnTensorDescriptor_t ydesc, void *y, void *reserveSpace, size_t reserveSpaceSizeInBytes{
+	cudnnStatus_t cudnnDropoutForward(cudnnHandle_t handle, const cudnnDropoutDescriptor_t dropoutDesc, const cudnnTensorDescriptor_t xdesc, const void *x, const cudnnTensorDescriptor_t ydesc, void *y, void *reserveSpace, size_t reserveSpaceSizeInBytes){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

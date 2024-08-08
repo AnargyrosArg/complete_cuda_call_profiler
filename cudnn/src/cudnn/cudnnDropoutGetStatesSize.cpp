@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnDropoutGetStatesSize)(cudnnHandle_t, size_t *);
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnDropoutGetStatesSize(cudnnHandle_t handle, size_t *sizeInBytes{
+	cudnnStatus_t cudnnDropoutGetStatesSize(cudnnHandle_t handle, size_t *sizeInBytes){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

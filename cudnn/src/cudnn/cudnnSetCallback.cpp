@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnSetCallback)(unsigned, void *, cudnnCallback_t);
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnSetCallback(unsigned mask, void *udata, cudnnCallback_t fptr{
+	cudnnStatus_t cudnnSetCallback(unsigned mask, void *udata, cudnnCallback_t fptr){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

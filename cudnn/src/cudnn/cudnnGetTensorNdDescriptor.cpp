@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnGetTensorNdDescriptor)(const cudnnTensorDescriptor_
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnGetTensorNdDescriptor(const cudnnTensorDescriptor_t tensorDesc, int nbDimsRequested, cudnnDataType_t *dataType, int *nbDims, int dimA[], int strideA[]{
+	cudnnStatus_t cudnnGetTensorNdDescriptor(const cudnnTensorDescriptor_t tensorDesc, int nbDimsRequested, cudnnDataType_t *dataType, int *nbDims, int dimA[], int strideA[]){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

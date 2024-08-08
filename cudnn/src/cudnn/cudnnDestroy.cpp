@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnDestroy)(cudnnHandle_t);
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnDestroy(cudnnHandle_t handle{
+	cudnnStatus_t cudnnDestroy(cudnnHandle_t handle){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);

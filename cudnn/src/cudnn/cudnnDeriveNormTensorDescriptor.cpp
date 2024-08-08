@@ -6,7 +6,7 @@ cudnnStatus_t (*wrapper_cudnnDeriveNormTensorDescriptor)(cudnnTensorDescriptor_t
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnDeriveNormTensorDescriptor(cudnnTensorDescriptor_t derivedNormScaleBiasDesc, cudnnTensorDescriptor_t derivedNormMeanVarDesc, const cudnnTensorDescriptor_t xDesc, cudnnNormMode_t mode, int groupCnt{
+	cudnnStatus_t cudnnDeriveNormTensorDescriptor(cudnnTensorDescriptor_t derivedNormScaleBiasDesc, cudnnTensorDescriptor_t derivedNormMeanVarDesc, const cudnnTensorDescriptor_t xDesc, cudnnNormMode_t mode, int groupCnt){
 		char* __dlerror;
         #ifdef PRINT_TRACE
     	fprintf(stderr,"%s()\n",__func__);
