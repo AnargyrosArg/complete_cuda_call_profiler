@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtMatmulDescCreate)(cublasLtMatmulDesc_t *, cubla
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtMatmulDescCreate(cublasLtMatmulDesc_t *matmulDesc, cublasComputeType_t computeType, cudaDataType_t scaleType) {
+	cublasStatus_t cublasLtMatmulDescCreate(cublasLtMatmulDesc_t *matmulDesc, cublasComputeType_t computeType, cudaDataType_t scaleType){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

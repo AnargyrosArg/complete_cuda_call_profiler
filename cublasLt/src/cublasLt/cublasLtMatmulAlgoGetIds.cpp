@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtMatmulAlgoGetIds)(cublasLtHandle_t, cublasCompu
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtMatmulAlgoGetIds(cublasLtHandle_t lightHandle, cublasComputeType_t computeType, cudaDataType_t scaleType, cudaDataType_t Atype, cudaDataType_t Btype, cudaDataType_t Ctype, cudaDataType_t Dtype, int requestedAlgoCount, int algoIdsArray[], int *returnAlgoCount) {
+	cublasStatus_t cublasLtMatmulAlgoGetIds(cublasLtHandle_t lightHandle, cublasComputeType_t computeType, cudaDataType_t scaleType, cudaDataType_t Atype, cudaDataType_t Btype, cudaDataType_t Ctype, cudaDataType_t Dtype, int requestedAlgoCount, int algoIdsArray[], int *returnAlgoCount){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

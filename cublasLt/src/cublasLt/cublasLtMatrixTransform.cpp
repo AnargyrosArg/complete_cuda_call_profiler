@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtMatrixTransform)(cublasLtHandle_t, cublasLtMatr
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtMatrixTransform(cublasLtHandle_t lightHandle, cublasLtMatrixTransformDesc_t transformDesc, const void *alpha, const void *A, cublasLtMatrixLayout_t Adesc, const void *beta, const void *B, cublasLtMatrixLayout_t Bdesc, void *C, cublasLtMatrixLayout_t Cdesc, cudaStream_t stream) {
+	cublasStatus_t cublasLtMatrixTransform(cublasLtHandle_t lightHandle, cublasLtMatrixTransformDesc_t transformDesc, const void *alpha, const void *A, cublasLtMatrixLayout_t Adesc, const void *beta, const void *B, cublasLtMatrixLayout_t Bdesc, void *C, cublasLtMatrixLayout_t Cdesc, cudaStream_t stream){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

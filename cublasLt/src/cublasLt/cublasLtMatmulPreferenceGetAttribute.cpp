@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtMatmulPreferenceGetAttribute)(cublasLtMatmulPre
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtMatmulPreferenceGetAttribute(cublasLtMatmulPreference_t pref, cublasLtMatmulPreferenceAttributes_t attr, void *buf, size_t sizeInBytes, size_t *sizeWritten) {
+	cublasStatus_t cublasLtMatmulPreferenceGetAttribute(cublasLtMatmulPreference_t pref, cublasLtMatmulPreferenceAttributes_t attr, void *buf, size_t sizeInBytes, size_t *sizeWritten){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

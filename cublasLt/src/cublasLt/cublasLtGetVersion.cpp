@@ -6,8 +6,11 @@ size_t (*wrapper_cublasLtGetVersion)();
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	size_t cublasLtGetVersion() {
+	size_t cublasLtGetVersion(){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

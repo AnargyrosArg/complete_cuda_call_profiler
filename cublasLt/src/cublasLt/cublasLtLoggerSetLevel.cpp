@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtLoggerSetLevel)(int);
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtLoggerSetLevel(int level) {
+	cublasStatus_t cublasLtLoggerSetLevel(int level){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

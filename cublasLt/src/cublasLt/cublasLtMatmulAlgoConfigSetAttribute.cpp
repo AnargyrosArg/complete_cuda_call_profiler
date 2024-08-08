@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtMatmulAlgoConfigSetAttribute)(cublasLtMatmulAlg
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtMatmulAlgoConfigSetAttribute(cublasLtMatmulAlgo_t *algo, cublasLtMatmulAlgoConfigAttributes_t attr, const void *buf, size_t sizeInBytes) {
+	cublasStatus_t cublasLtMatmulAlgoConfigSetAttribute(cublasLtMatmulAlgo_t *algo, cublasLtMatmulAlgoConfigAttributes_t attr, const void *buf, size_t sizeInBytes){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

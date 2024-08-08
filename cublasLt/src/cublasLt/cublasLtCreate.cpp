@@ -6,8 +6,11 @@ cublasStatus_t (*wrapper_cublasLtCreate)(cublasLtHandle_t *);
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	cublasStatus_t cublasLtCreate(cublasLtHandle_t *lightHandle) {
+	cublasStatus_t cublasLtCreate(cublasLtHandle_t *lightHandle){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){

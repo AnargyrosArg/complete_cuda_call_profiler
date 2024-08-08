@@ -6,8 +6,11 @@ const char * (*wrapper_cublasLtGetStatusName)(cublasStatus_t);
 extern void* libwrapper_cublasLt_handle;
 extern "C"
 {
-	const char * cublasLtGetStatusName(cublasStatus_t status) {
+	const char * cublasLtGetStatusName(cublasStatus_t status){
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cublasLt_handle == NULL){
