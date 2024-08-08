@@ -6,8 +6,11 @@ cudnnStatus_t (*wrapper_cudnnOpsTrainVersionCheck)();
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnOpsTrainVersionCheck() {
+	cudnnStatus_t cudnnOpsTrainVersionCheck({
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cudnn_handle == NULL){

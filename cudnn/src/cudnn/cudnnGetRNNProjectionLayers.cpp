@@ -6,8 +6,11 @@ cudnnStatus_t (*wrapper_cudnnGetRNNProjectionLayers)(cudnnHandle_t, const cudnnR
 extern void* libwrapper_cudnn_handle;
 extern "C"
 {
-	cudnnStatus_t cudnnGetRNNProjectionLayers(cudnnHandle_t handle, const cudnnRNNDescriptor_t rnnDesc, int *recProjSize, int *outProjSize) {
+	cudnnStatus_t cudnnGetRNNProjectionLayers(cudnnHandle_t handle, const cudnnRNNDescriptor_t rnnDesc, int *recProjSize, int *outProjSize{
 		char* __dlerror;
+        #ifdef PRINT_TRACE
+    	fprintf(stderr,"%s()\n",__func__);
+    	#endif
 		//this call clears any previous errors
 		dlerror();
 		if(libwrapper_cudnn_handle == NULL){
